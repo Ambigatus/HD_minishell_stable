@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 13:35:26 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 17:17:52 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 21:36:04 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*detect_dollar_sign(t_global *global, char *str)
 	{
 		j += handle_digit_after_dollar(j, str);
 		if (str[j] == '$' && str[j + 1] == '?')
-			j += question_mark(&tmp);
+			j += question_mark(&tmp, global->heredoc_struct);
 		else if (str[j] == '$' && (str[j + 1] != ' ' && (str[j + 1] != '"'
 					|| str[j + 2] != '\0')) && str[j + 1] != '\0')
 			j += loop_if_dollar_sign(global, str, &tmp, j);

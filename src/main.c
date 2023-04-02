@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:04:02 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 21:12:25 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 21:23:36 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	init_global_struct(t_global *global)
 	global->reset = false;
 	global->pid = NULL;
 	global->heredoc = false;
-	heredoc_struct.stop_heredoc = 0;
-	heredoc_struct.in_cmd = 0;
-	heredoc_struct.in_heredoc = 0;
+	global->heredoc_struct.stop_heredoc = 0;
+	global->heredoc_struct.in_cmd = 0;
+	global->heredoc_struct.in_heredoc = 0;
 	parse_envp(global);
 	init_signals();
 	return (1);

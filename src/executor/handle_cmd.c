@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:24:04 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 20:45:01 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 21:32:05 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	single_cmd(t_simple_cmds *cmd, t_global *global)
 	if (cmd->builtin == ft_cd || cmd->builtin == ft_exit
 		|| cmd->builtin == ft_export || cmd->builtin == ft_unset)
 	{
-		heredoc_struct.error_num = cmd->builtin(global, cmd);
+		global->heredoc_struct.error_num = cmd->builtin(global, cmd);
 		return ;
 	}
 	send_heredoc(global, cmd);
@@ -86,5 +86,5 @@ void	single_cmd(t_simple_cmds *cmd, t_global *global)
 		handle_cmd(cmd, global);
 	waitpid(pid, &status, 0);
 	if (WIFEXITED(status))
-		heredoc_struct.error_num = WEXITSTATUS(status);
+		global->heredoc_struct.error_num = WEXITSTATUS(status);
 }

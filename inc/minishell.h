@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:46:41 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 21:10:58 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 21:41:04 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,14 +128,14 @@ size_t			dollar_sign(char *str);
 char			*char_to_str(char c);
 int				after_dol_lenght(char *str, int j);
 void			free_things(char *tmp2, t_global *tools, int i);
-int				question_mark(char **tmp);
+int				question_mark(char **tmp, t_heredoc heredoc_struct);
 
 /*		EXECUTOR FUNCTIONS		*/
 int			prepare_executor(t_global *global);
 int				check_redirections(t_simple_cmds *cmd);
 int				executor(t_global *tools);
 t_simple_cmds	*call_expander(t_global *tools, t_simple_cmds *cmd);
-int				pipe_wait(int *pid, int amount);
+int				pipe_wait(t_global *global);
 int				find_cmd(t_simple_cmds *cmd, t_global *tools);
 void			handle_cmd(t_simple_cmds *cmd, t_global *tools);
 void			dup_cmd(t_simple_cmds *cmd, t_global *tools,

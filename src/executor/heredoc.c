@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:42:39 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 20:45:51 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 21:33:42 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	create_heredoc(t_token *lst, bool quotes,
 	fd = open(file_name, O_CREAT | O_RDWR | O_TRUNC, 0644);
 	line = readline("Heredoc...");
 	while (line && ft_strncmp(lst->str, line, ft_strlen(lst->str))
-		&& !heredoc_struct.stop_heredoc)
+		&& !global->heredoc_struct.stop_heredoc)
 	{
 		if (quotes == false)
 			line = expander_str(global, line);
@@ -31,13 +31,13 @@ int	create_heredoc(t_token *lst, bool quotes,
 		line = readline("Heredoc...");
 	}
 	free(line);
-	if (heredoc_struct.stop_heredoc || !line)
+	if (global->heredoc_struct.stop_heredoc || !line)
 		return (EXIT_FAILURE);
 	close(fd);
 	return (EXIT_SUCCESS);
 }
 
-int	ft_heredoc(t_global *tools, t_token *lst, char *file_name)
+int	ft_heredoc(t_global *global, t_token *lst, char *file_name)
 {
 	bool	quotes;
 	int		sl;
@@ -52,11 +52,11 @@ int	ft_heredoc(t_global *tools, t_token *lst, char *file_name)
 		quotes = false;
 	delete_quotes(lst->str, '\"');
 	delete_quotes(lst->str, '\'');
-	heredoc_struct.stop_heredoc = 0;
-	heredoc_struct.in_heredoc = 1;
-	sl = create_heredoc(lst, quotes, tools, file_name);
-	heredoc_struct.in_heredoc = 0;
-	tools->heredoc = true;
+	global->heredoc_struct.stop_heredoc = 0;
+	global->heredoc_struct.in_heredoc = 1;
+	sl = create_heredoc(lst, quotes, global, file_name);
+	global->heredoc_struct.in_heredoc = 0;
+	global->heredoc = true;
 	return (sl);
 }
 
@@ -89,7 +89,7 @@ int	send_heredoc(t_global *global, t_simple_cmds *cmd)
 			sl = ft_heredoc(global, cmd->redirections, cmd->hd_file_name);
 			if (sl)
 			{
-				heredoc_struct.error_num = 1;
+				global->heredoc_struct.error_num = 1;
 				return (reset(global));
 			}
 		}

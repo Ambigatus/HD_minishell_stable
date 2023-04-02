@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:06:58 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 20:46:53 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 21:37:59 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	reset(t_global *global)
 int	prepare_executor(t_global *global)
 {
 	signal(SIGQUIT, sigquit_handler);
-	heredoc_struct.in_cmd = 1;
+	global->heredoc_struct.in_cmd = 1;
 	if (global->pipes == 0)
 		single_cmd(global->simple_cmds, global);
 	else
@@ -38,6 +38,6 @@ int	prepare_executor(t_global *global)
 			return (ft_error(1, global));
 		executor(global);
 	}
-	heredoc_struct.in_cmd = 0;
+	global->heredoc_struct.in_cmd = 0;
 	return (EXIT_SUCCESS);
 }

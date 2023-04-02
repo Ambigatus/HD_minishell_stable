@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:09:50 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 21:07:15 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/02 21:30:08 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ t_simple_cmds	*call_expander(t_global *global, t_simple_cmds *cmd)
 	return (cmd);
 }
 
-int	pipe_wait(int *pid, int amount)
+int	pipe_wait(t_global *global)
 {
 	int	i;
 	int	status;
 
 	i = 0;
-	while (i < amount)
+	while (i < global->pipes)
 	{
-		waitpid(pid[i], &status, 0);
+		waitpid(global->pid[i], &status, 0);
 		i++;
 	}
-	waitpid(pid[i], &status, 0);
+	waitpid(global->pid[i], &status, 0);
 	if (WIFEXITED(status))
-		heredoc_struct.error_num = WEXITSTATUS(status);
+		global->heredoc_struct.error_num = WEXITSTATUS(status);
 	return (EXIT_SUCCESS);
 }
 
@@ -100,7 +100,7 @@ int	executor(t_global *global)
 		else
 			break ;
 	}
-	pipe_wait(global->pid, global->pipes);
+	pipe_wait(global);
 	global->simple_cmds = ft_simple_cmdsfirst(global->simple_cmds);
 	return (0);
 }
