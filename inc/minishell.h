@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:46:41 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 21:41:04 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/06 19:47:56 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,8 @@ int				handle_quotes(int i, char *str, char del);
 /*		SIGNALS FUNCTIONS		*/
 void			sigint_handler(int sig);
 void			sigquit_handler(int sig);
-void			init_signals(void);
+void			init_signals(t_heredoc heredoc_struct);
+int				sig_checker(t_heredoc heredoc_struct);
 
 /*		RESIRECTIONS FUNCTIONS		*/
 int				add_new_redirection(t_token *tmp, t_parser_cmd *parser_cmd);

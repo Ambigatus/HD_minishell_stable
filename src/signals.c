@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:35:54 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 21:42:18 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/06 19:47:39 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,29 @@ int	event(void)
 	return (EXIT_SUCCESS);
 }
 
-void	sigint_handler(int sig)
+int	sig_checker(t_heredoc heredoc_struct)
 {
 	//redo it!!!
-	// if (!heredoc_struct.in_heredoc)
-	// 	ft_putstr_fd("\n", STDERR_FILENO);
-	// if (heredoc_struct.in_cmd)
-	// {
-	// 	heredoc_struct.stop_heredoc = 1;
-	// 	rl_replace_line("", 0);
-	// 	rl_redisplay();
-	// 	rl_done = 1;
-	// 	return ;
-	// }
+	if (!heredoc_struct.in_heredoc)
+	{
+		ft_putstr_fd("\n", STDERR_FILENO);
+		return (0);
+	}
+		
+	if (heredoc_struct.in_cmd)
+	{
+		heredoc_struct.stop_heredoc = 1;
+		rl_replace_line("", 0);
+		rl_redisplay();
+		rl_done = 1;
+		return (0) ;
+	}
+	return (1);
+}
+
+void	sigint_handler(int sig)
+{
+	
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
@@ -43,9 +53,10 @@ void	sigquit_handler(int sig)
 	ft_putchar_fd('\n', STDERR_FILENO);
 }
 
-void	init_signals(void)
+void	init_signals(t_heredoc heredoc_struct)
 {
 	rl_event_hook = event;
-	signal(SIGINT, sigint_handler);
+	if(sig_checker(heredoc_struct) == 1)
+		signal(SIGINT, sigint_handler);
 	signal(SIGQUIT, SIG_IGN);
 }
