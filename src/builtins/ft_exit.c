@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:10:47 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/07 20:07:15 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/07 20:38:46 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_exit(t_global *global, t_simple_cmds *simple_cmd)
 {
 	char	**str;
 
-	// ft_putendl_fd("exit", STDERR_FILENO);
+	ft_putendl_fd("exit", STDERR_FILENO);
 	if (simple_cmd->str[1] && simple_cmd->str[2])
 	{
 		ft_putstr_fd("minishell: exit: too many arguments\n", STDERR_FILENO);
