@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:10:47 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/07 20:38:46 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/07 20:43:56 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	is_str_digit(char *str)
 	int	i;
 
 	i = 0;
+	if (str[0] == '+' || str[0] == '-')
+		i++;
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
