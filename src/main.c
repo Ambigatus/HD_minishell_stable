@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:04:02 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/07 18:53:09 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/07 20:54:05 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int	run_minishell(t_global *global)
 
 int	init_global_struct(t_global *global)
 {
-	// t_heredoc	heredoc_struct;
-	
 	global->simple_cmds = NULL;
 	global->lexer_list = NULL;
 	global->reset = false;
@@ -53,7 +51,6 @@ int	main(int argc, char **argv, char **envp)
 	global.envp = ft_arrdup(envp);
 	find_pwd(&global);
 	init_global_struct(&global);
-	// printf("%s/n", "Minishell is running");
 	run_minishell(&global);
 	return (0);
 }

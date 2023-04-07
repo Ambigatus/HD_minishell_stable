@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:46:41 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/06 19:47:56 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/07 21:11:33 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct s_global
 	char					**envp;
 	struct s_simple_cmds	*simple_cmds;
 	t_token					*lexer_list;
-	t_heredoc	 			heredoc_struct;
+	t_heredoc				heredoc_struct;
 	char					*pwd;
 	char					*old_pwd;
 	int						pipes;
@@ -131,7 +131,7 @@ void			free_things(char *tmp2, t_global *tools, int i);
 int				question_mark(char **tmp, t_heredoc heredoc_struct);
 
 /*		EXECUTOR FUNCTIONS		*/
-int			prepare_executor(t_global *global);
+int				prepare_executor(t_global *global);
 int				check_redirections(t_simple_cmds *cmd);
 int				executor(t_global *tools);
 t_simple_cmds	*call_expander(t_global *tools, t_simple_cmds *cmd);
@@ -146,14 +146,12 @@ int				send_heredoc(t_global *tools, t_simple_cmds *cmd);
 /*		MESS FUNCTIONS		*/
 int				find_pwd(t_global *tools);
 int				reset(t_global *tools);
-void			init_stri(int i, int j, t_global *tools);
-void			free_arr(char **split_arr);
-
-/*		QUOTES FUNCTIONS		*/
+void			init_stri(int i, int j, t_global change_path(t_global global));
 char			*delete_quotes_value(char *str);
 char			*delete_quotes(char *str, char c);
 char			*delete_quotes_export(char *str, char c);
 int				handle_quotes(int i, char *str, char del);
+void			free_arr(char **split_arr);
 
 /*		SIGNALS FUNCTIONS		*/
 void			sigint_handler(int sig);
@@ -178,14 +176,16 @@ int				ft_exit(t_global *global, t_simple_cmds *simple_cmd);
 int				ft_continue(t_global *global, t_simple_cmds *simple_cmd);
 size_t			equal_sign(char *str);
 int				check_valid_identifier(char c);
-int				(*builtin_arr(char *str))(t_global *global, t_simple_cmds *simple_cmd);
+int				(*builtin_arr(char *str))(t_global *global, \
+										t_simple_cmds *simple_cmd);
 
 /*		ERRORS FUNCTIONS		*/
-void	parser_error(int error, t_global *tools, t_token *lexer_list);
-int		parser_double_token_error(t_global *tools, t_token *lexer_list,t_symbol token);
-void	lexer_error(int error, t_global *tools);
-int		cmd_not_found(char *str);
-int		export_error(char *c);
-int		ft_error(int error, t_global *tools);
+void			parser_error(int error, t_global *tools, t_token *lexer_list);
+int				parser_double_token_error(t_global *tools, t_token *lexer_list, \
+											t_symbol token);
+void			lexer_error(int error, t_global *tools);
+int				cmd_not_found(char *str);
+int				export_error(char *c);
+int				ft_error(int error, t_global *tools);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:17:04 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 18:01:01 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/07 21:12:04 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	specific_path(t_global *global, char *str)
 	int		ret;
 
 	tmp = find_path_ret(str, global);
+	if (!tmp)
+		return (0);
 	ret = chdir(tmp);
 	free(tmp);
 	if (ret != 0)
@@ -89,7 +91,7 @@ int	ft_cd(t_global *global, t_simple_cmds *simple_cmd)
 	}
 	if (ret != 0)
 		return (EXIT_FAILURE);
-	change_path(global);
+	// change_path(global);
 	add_path_to_env(global);
 	return (EXIT_SUCCESS);
 }

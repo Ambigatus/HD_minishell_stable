@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:35:54 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/06 19:47:39 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/07 20:58:26 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,24 @@ int	event(void)
 
 int	sig_checker(t_heredoc heredoc_struct)
 {
-	//redo it!!!
 	if (!heredoc_struct.in_heredoc)
 	{
 		ft_putstr_fd("\n", STDERR_FILENO);
 		return (0);
 	}
-		
 	if (heredoc_struct.in_cmd)
 	{
 		heredoc_struct.stop_heredoc = 1;
 		rl_replace_line("", 0);
 		rl_redisplay();
 		rl_done = 1;
-		return (0) ;
+		return (0);
 	}
 	return (1);
 }
 
 void	sigint_handler(int sig)
 {
-	
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
@@ -56,7 +53,7 @@ void	sigquit_handler(int sig)
 void	init_signals(t_heredoc heredoc_struct)
 {
 	rl_event_hook = event;
-	if(sig_checker(heredoc_struct) == 1)
+	if (sig_checker(heredoc_struct) == 1)
 		signal(SIGINT, sigint_handler);
 	signal(SIGQUIT, SIG_IGN);
 }

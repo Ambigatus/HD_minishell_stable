@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:38:41 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/03/28 22:40:37 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/07 21:00:08 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	lexer(t_global *global)
 {
 	char	*tmp;
-	
+
 	tmp = ft_strtrim(global->args, " ");
 	free(global->args);
 	global->args = tmp;
