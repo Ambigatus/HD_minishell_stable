@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 10:27:43 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 17:21:38 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:57:35 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	handle_quotes(int i, char *str, char del)
 {

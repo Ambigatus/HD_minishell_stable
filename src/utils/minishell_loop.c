@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:06:58 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 21:37:59 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:58:10 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	reset(t_global *global)
 {

@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:38:43 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/02 20:01:16 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:56:52 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 void	parser_error(int error, t_global *tools, t_token *lexer_list)
 {
@@ -33,6 +33,8 @@ int	parser_double_token_error(t_global *global, t_token *lexer_list,
 		ft_putstr_fd("'<<'\n", STDERR_FILENO);
 	else if (token == PIPE)
 		ft_putstr_fd("'|'\n", STDERR_FILENO);
+	else if (token == SEMICOLON)
+		ft_putstr_fd("';'\n", STDERR_FILENO);
 	else
 		ft_putstr_fd("\n", STDERR_FILENO);
 	ft_lexerclear(&lexer_list);

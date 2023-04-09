@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:45:05 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 17:15:50 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:57:05 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 char	*join_split_str(char **split_str, char *new_str)
 {

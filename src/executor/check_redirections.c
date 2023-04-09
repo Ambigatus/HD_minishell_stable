@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:41:01 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 16:41:14 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:57:00 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	check_append_outfile(t_token *redirections)
 {

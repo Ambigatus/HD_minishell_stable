@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_lexer_clear_utils.c                              :+:      :+:    :+:   */
+/*   lexer_clear_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 11:11:43 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 17:36:25 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:58:03 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 t_token	*ft_lexerclear_one(t_token **lst)
 {

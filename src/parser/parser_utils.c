@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:52:02 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 17:26:13 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:57:53 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 t_parser_cmd	init_parser_tools(t_token *lexer_list, t_global *global)
 {

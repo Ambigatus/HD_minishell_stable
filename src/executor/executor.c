@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:09:50 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 21:30:08 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:57:10 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 t_simple_cmds	*call_expander(t_global *global, t_simple_cmds *cmd)
 {

@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:38:41 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/07 21:00:08 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:57:39 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	lexer(t_global *global)
 {

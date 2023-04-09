@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 13:35:26 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 21:36:04 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:57:30 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	loop_if_dollar_sign(t_global *global, char *str, char **tmp, int j)
 {

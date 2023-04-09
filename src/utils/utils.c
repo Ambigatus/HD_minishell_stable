@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:17:26 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/09 22:09:48 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:58:21 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 void	free_arr(char **split_arr)
 {

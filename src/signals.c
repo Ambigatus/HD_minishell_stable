@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 14:35:54 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/07 20:58:26 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 23:00:20 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../inc/minishell.h"
 
 int	event(void)
 {

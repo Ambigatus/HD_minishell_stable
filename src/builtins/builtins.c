@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:42:32 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 20:40:38 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:56:23 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	(*builtin_arr(char *str))(t_global *global, t_simple_cmds *simple_cmd)
 {

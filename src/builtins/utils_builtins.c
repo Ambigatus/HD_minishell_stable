@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:04:47 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 16:17:09 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:56:43 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 void	change_path(t_global *global)
 {

@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:16:57 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 17:35:55 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:58:17 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	find_pwd(t_global *global)
 {

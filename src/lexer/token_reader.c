@@ -6,11 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 17:11:20 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 17:23:20 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:57:42 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../../inc/minishell.h"
 
 int	is_whitespace(char c)
 {
