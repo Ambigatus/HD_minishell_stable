@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:46:41 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/09 21:15:14 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:08:20 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef enum s_symbol
 	GREAT_GREAT,
 	LESS,
 	LESS_LESS,
+	SEMICOLON,
 }	t_symbol;
 
 /*		TOKEN STRUCT		*/
@@ -111,6 +112,7 @@ void			count_pipes(t_token *lexer_list, t_global *global);
 int				count_args(t_token *lexer_list);
 t_token			*find_next_cmd(t_token *lexer_lst);
 t_parser_cmd	init_parser_tools(t_token *lexer_list, t_global *global);
+t_symbol		peek_token(t_token *lexer_list);
 //functions for one cmd
 t_simple_cmds	*ft_simple_cmdsnew(char **str,
 					int num_redirections, t_token *redirections);

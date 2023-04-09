@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:28:22 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 17:29:47 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:11:13 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,3 +86,37 @@ int	parser(t_global *global)
 	}
 	return (EXIT_SUCCESS);
 }
+// int	parser(t_global *global)
+// {
+// 	t_simple_cmds	*node;
+// 	t_parser_cmd	cmd;
+
+// 	global->simple_cmds = NULL;
+// 	count_pipes(global->lexer_list, global);
+// 	if (global->lexer_list->token == PIPE)
+// 		return (parser_double_token_error(global, global->lexer_list,
+// 				global->lexer_list->token));
+// 	while (global->lexer_list)
+// 	{
+// 		if (global->lexer_list->token == SEMICOLON
+// 			&& peek_token(global->lexer_list) == PIPE)
+// 		{
+// 			parser_double_token_error(global, global->lexer_list, PIPE);
+// 			return (EXIT_FAILURE);
+// 		}
+// 		if (global->lexer_list->token == PIPE)
+// 			ft_lexerdelone(&global->lexer_list, global->lexer_list->i);
+// 		if (handle_pipe_errors(global, global->lexer_list->token))
+// 			return (EXIT_FAILURE);
+// 		cmd = init_parser_tools(global->lexer_list, global);
+// 		node = initialize_cmd(&cmd);
+// 		if (!node)
+// 			parser_error(0, global, cmd.lexer_list);
+// 		if (!global->simple_cmds)
+// 			global->simple_cmds = node;
+// 		else
+// 			ft_simple_cmdsadd_back(&global->simple_cmds, node);
+// 		global->lexer_list = cmd.lexer_list;
+// 	}
+// 	return (EXIT_SUCCESS);
+// }

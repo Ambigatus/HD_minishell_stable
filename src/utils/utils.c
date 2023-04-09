@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:17:26 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 20:16:47 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 22:09:48 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,11 @@ char	**ft_arrdup(char **arr)
 		i++;
 	}
 	return (rtn);
+}
+
+t_symbol	peek_token(t_token *lexer_list)
+{
+	if (lexer_list && lexer_list->next)
+		return (lexer_list->next->token);
+	return (0);
 }
