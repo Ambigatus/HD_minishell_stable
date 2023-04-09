@@ -3,12 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 23:14:33 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:32:48 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/23 17:46:56 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 13:42:23 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*This function applies the parameter function f to each character of a string
+ * also passed in it's parameter at at precisely that character's index string
+ * position. Each character that is passed into the function f is modified if
+ * necessary.*/
 
 #include "libft.h"
 
@@ -30,8 +35,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		}
 	}
 }
-
-/*This function applies the parameter function f to each character of a string
-* also passed in it's parameter at at precisely that character's index string
-* position. Each character that is passed into the function f is modified if
-* necessary.*/

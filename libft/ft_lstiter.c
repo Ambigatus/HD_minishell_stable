@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 23:52:05 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:57:44 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/24 22:39:47 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 14:08:54 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*This function will be taking the function f, passed in the parameters, and
+ * applying it to every link in our linked list.*/
 
 #include "libft.h"
 
@@ -23,6 +26,3 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		temp = temp->next;
 	}
 }
-
-/*This function will be taking the function f, passed in the parameters, and
-* applying it to every link in our linked list.*/

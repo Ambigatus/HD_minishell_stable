@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 11:35:57 by ddzuba            #+#    #+#             */
-/*   Updated: 2022/12/08 19:10:38 by ddzuba           ###   ########.fr       */
+/*   Created: 2023/04/01 17:13:04 by ddzuba            #+#    #+#             */
+/*   Updated: 2023/04/01 17:14:20 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//strlen - standart function, what displays a number of characters in string
-
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_free(void *data)
 {
-	size_t	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	if (data)
+		free (data);
+	return (NULL);
 }
-
-// int main()
-// {
-// 	char str[] = "No one cares about this";
-// 	int result = ft_strlen(str);
-// 	printf("The length of the string is %d.\n", result);
-//  	return 0;
-//  }

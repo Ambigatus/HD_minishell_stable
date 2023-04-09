@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpm_reverse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 11:35:57 by ddzuba            #+#    #+#             */
-/*   Updated: 2022/12/08 19:10:38 by ddzuba           ###   ########.fr       */
+/*   Created: 2023/04/01 18:08:29 by ddzuba            #+#    #+#             */
+/*   Updated: 2023/04/01 18:24:39 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//strlen - standart function, what displays a number of characters in string
-
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+/* This is a function that compares two strings in reverse order and returns 1
+** if the second string is found at the end of the first string, and 0
+** otherwise. */
+int	ft_memcpm_reverse(char *s1, char *s2)
 {
-	size_t	len;
+	int	len;
+	int	i;
+	int	y;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	len = ft_strlen(s2);
+	i = ft_strlen(s1) - len;
+	if (i < 0)
+		return (0);
+	y = 0;
+	while (s1[i] && s2[y])
+	{
+		if (s1[i] != s2[y])
+			return (0);
+		i++;
+		y++;
+	}
+	return (0);
 }
-
-// int main()
-// {
-// 	char str[] = "No one cares about this";
-// 	int result = ft_strlen(str);
-// 	printf("The length of the string is %d.\n", result);
-//  	return 0;
-//  }

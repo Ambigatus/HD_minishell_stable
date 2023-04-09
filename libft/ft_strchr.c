@@ -3,31 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/06 14:18:05 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:19:05 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/04/29 13:14:10 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 13:37:23 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s != '\0')
-	{
-		if ((unsigned char)*s == (unsigned char)c)
-		{
-			return ((char *)s);
-		}
-		s++;
-	}
-	if (c == 0)
-	{
-		return ((char *)s);
-	}
-	return (NULL);
-}
 
 // strchr - locate character in string
 // The strchr() function locates the first occurrence of d (converted to a char)
@@ -36,3 +17,18 @@ char	*ft_strchr(const char *s, int c)
 // the functions locate the terminating `\0'.
 // The functions strchr() return a pointer to the located
 // character, or zero if the character does not appear in the string.
+
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != '\0')
+	{
+		if ((unsigned char)*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == 0)
+		return ((char *)s);
+	return (NULL);
+}

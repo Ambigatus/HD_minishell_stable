@@ -3,29 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 20:30:16 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:09:18 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/23 17:59:46 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 13:30:08 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*This function writes the string s to the file descriptor fd followed by a
+ * '\n' to make a new line. This function is exactly the same as our ft_putendl
+ * function except that we take in a parameter for the file descriptor. We will
+ * use our ft_putstr_fd and ft_putchar_fd functions to make this function work.
+ * Please review ft_putstr_fd and ft_putchar_fd to understand the inner
+ * workings of this function.*/
 
 #include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	if (!(s) || fd < 0)
-		return ;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		s++;
-	}
-	write(fd, "\n", 1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
-
-// *This function writes the string s to the file descriptor fd followed by a
-// * '\n' to make a new line.

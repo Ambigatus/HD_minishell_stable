@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 19:00:25 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:59:04 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/24 18:46:52 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 14:14:14 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Counts the number of elements in a list.
 
 #include "libft.h"
 
@@ -24,5 +26,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (len);
 }
-
-// Counts the number of elements in a list.

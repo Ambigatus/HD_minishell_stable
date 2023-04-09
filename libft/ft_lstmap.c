@@ -3,12 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 23:46:30 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:58:04 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/24 23:04:47 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 14:09:31 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Creates a new list by applying the function f to the content of each 
+// element of lst. In case of problems creating an element, deletes the new 
+// list by using the function del.
 
 #include "libft.h"
 
@@ -33,7 +37,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
-
-// Creates a new list by applying the function f to the content of each
-// element of lst. In case of problems creating an element, deletes the new
-// list by using the function del.

@@ -3,41 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 17:07:47 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:43:43 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/04/28 13:05:14 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/29 21:01:48 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//size-bounded string copying
+// strlcpy function copies the string pointed by source including the null 
+// character to the destination.strlcpy function also returns the copied string.
+
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *srs, size_t size)
 {
-	size_t		i;
-	char		*src_char;
-	size_t		len;
+	size_t	i;
+	size_t	len;
+	char	*s;
 
+	if (!dst || !srs)
+		return (0);
 	i = 0;
 	len = 0;
-	src_char = (char *)src;
-	if (!dst)
-		return (0);
-	len = ft_strlen(src_char);
-	if (!dstsize)
+	s = (char *)srs;
+	len = ft_strlen(s);
+	if (!size)
 		return (len);
-	while (src_char != 0 && i < dstsize - 1)
+	while (s[i] && i < size - 1)
 	{
-		if (*src != '\0')
-			*dst++ = *src++;
-		else
-			break ;
+		dst[i] = s[i];
 		i++;
 	}
-	*dst = '\0';
+	dst[i] = '\0';
 	return (len);
 }
-
-//size-bounded string copying
-// strlcpy function copies the string pointed by source including the null
-// character to the destination.strlcpy function also returns the copied string.

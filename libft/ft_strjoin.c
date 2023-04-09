@@ -3,42 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/16 15:47:25 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:33:04 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/11 22:43:08 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/29 20:57:26 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*This function allocates memory and returns a new string terminated by a '\0'
+ * which is the result of a concatenation of the parameters s1 and s2. If the
+ * allocation fails the function will return NULL.*/
 
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*string;
-	size_t	new_len;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	o;
+	char	*result;
 
 	i = 0;
-	j = 0;
-	new_len = ft_strlen(s1) + ft_strlen(s2);
-	string = (char *) malloc(sizeof(char) * new_len + 1);
-	if (string == NULL)
+	o = 0;
+	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (result == NULL)
 		return (NULL);
 	while (s1[i] != '\0')
 	{
-		string[i] = s1[i];
+		result[i] = s1[i];
 		i++;
 	}
-	while (s2[j] != '\0')
+	while (s2[o] != '\0')
 	{
-		string[i + j] = s2[j];
-		j++;
+		result[i + o] = s2[o];
+		o++;
 	}
-	string[i + j] = '\0';
-	return (string);
+	result[i + o] = '\0';
+	return (result);
 }
-
-/*This function allocates memory and returns a new string terminated by a '\0'
-* which is the result of a concatenation of the parameters s1 and s2. If the
-* allocation fails the function will return NULL.*/

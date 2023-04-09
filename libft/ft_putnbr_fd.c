@@ -3,41 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 20:10:13 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:12:29 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/23 18:06:23 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 13:31:10 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/*This function is exactly the same as our ft_putnbr function except that we
+ * will be using our ft_putchar_fd function instead of ft_putchar beacuse we 
+ * will be accepting a parameter for this function that is our file descriptor.
+ * I recommend learning how the ft_putnbr and ft_putchar_fd functions work in
+ * order to understand how this function works. The explanation of the inner
+ * workings of this function are the same as I gave for ft_putnbr.*/
 
-static void	ft_putchar(char d, int fd)
-{
-	write(fd, &d, 1);
-}
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (fd < 0)
-		return ;
 	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
 	}
-	if (n < 0)
-	{
-		n = -n;
-		ft_putchar('-', fd);
-	}
-	if (n < 10)
-	{
-		ft_putchar(n + '0', fd);
-	}
-	else
+	else if (n >= 10)
 	{
 		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
 	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }

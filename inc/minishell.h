@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:46:41 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/07 21:11:33 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/09 21:15:14 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_global
 typedef struct s_simple_cmds
 {
 	char					**str;
+	char					op;
 	int						(*builtin)(t_global *, struct s_simple_cmds *);
 	int						num_redirections;
 	char					*hd_file_name;

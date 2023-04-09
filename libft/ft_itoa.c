@@ -3,12 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 19:39:14 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:00:49 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/20 17:27:51 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/29 20:19:52 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Function itoa allocates memory and returns a 'fresh' string of characters
+// terminated with a '\0' that is the char equivalent of the int passed in
+// the parameter. Negative numbers should be managed as well. If the allocation
+// fails the function will return NULL. NOTE: This is a recursive function. If
+// you are unfamiliar with recursive functions it is a function which either
+// calls itself or is in a potential cycle of function calls
 
 #include "libft.h"
 
@@ -70,13 +77,3 @@ char	*ft_itoa(int n)
 		new_string[0] = '-';
 	return (new_string);
 }
-
-// A static function in C is a function that has 
-// a scope that is limited to its object file.
-// 
-// Function itoa allocates memory and returns a 'fresh' string of characters
-// terminated with a '\0' that is the char equivalent of the int passed in
-// the parameter. Negative numbers should be managed as well. If the allocation
-// fails the function will return NULL. NOTE: This is a recursive function. If
-// you are unfamiliar with recursive functions it is a function which either
-// calls itself or is in a potential cycle of function calls

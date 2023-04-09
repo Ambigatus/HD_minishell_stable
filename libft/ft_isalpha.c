@@ -3,31 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 13:48:47 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 13:48:56 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/04/26 13:16:19 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 17:37:40 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//isalpha - standart alphabetic character test
 
 #include "libft.h"
 
 int	ft_isalpha(int c)
 {
-	if (c >= 'a' && c <= 'z')
-	{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
-	}
-	else if (c >= 'A' && c <= 'Z')
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}	
+	return (0);
 }
-
-//  The isalpha() function tests for any character for which 
-// isupper(3) or islower(3) is true.  The value of the argument must 
-// be representable as an unsigned char or the value of EOF.

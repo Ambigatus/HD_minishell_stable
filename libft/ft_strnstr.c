@@ -3,36 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hboichuk <hboichuk@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/07 21:14:24 by hboichuk          #+#    #+#             */
-/*   Updated: 2022/05/26 20:54:58 by hboichuk         ###   ########.fr       */
+/*   Created: 2022/05/07 13:51:34 by ddzuba            #+#    #+#             */
+/*   Updated: 2022/05/26 13:58:30 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*This function locates the first occurrence of the substring 's2' in the
+**string 's1' and returns a pointer to this position.*/
+
 #include "libft.h"
 
-char	*ft_strnstr(const char	*haystack, const char	*needle, size_t	len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t			i;
-	size_t			j;
-	char			*next_haystack;
+	unsigned long	i;
+	int				o;
 
+	o = 0;
 	i = 0;
-	next_haystack = (char *)haystack;
-	if (!*needle)
-		return (next_haystack);
-	while (haystack[i] != '\0' && i < len)
+	if (!*s2)
+		return ((char *)s1);
+	while (s1[i])
 	{
-		j = 0;
-		while (i + j < len && needle[j] != '\0' && haystack[i + j] == needle[j])
-			j++;
-		if (needle[j] == '\0')
-			return (next_haystack + i);
-		i++;
+		o = 0;
+		while (s1[i] == s2[o] && s1[i] && i < n)
+		{
+			i++;
+			o++;
+		}
+		if (!s2[o])
+			return ((char *)&s1[i - o]);
+		i = (i - o) + 1;
 	}
 	return (NULL);
 }
-
-/*This function locates the first occurrence of the substring 's2' in the
-**string 's1' and returns a pointer to this position.*/
