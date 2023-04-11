@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:28:22 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/09 23:21:18 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/11 11:40:04 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int	parser(t_global *global)
 		}
 		if (global->lexer_list->token == PIPE)
 		{
-			if (handle_pipe_errors(global, global->lexer_list->token))
-				return (EXIT_FAILURE);
+			// if (handle_pipe_errors(global, global->lexer_list->token))
+			// 	return (EXIT_FAILURE);
 			global->lexer_list = global->lexer_list->next;
 			continue ;
 		}
