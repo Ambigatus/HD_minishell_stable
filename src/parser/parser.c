@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:28:22 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/11 11:40:04 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/11 11:45:37 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_simple_cmds	*initialize_cmd(t_parser_cmd *parser_tools)
 
 int	handle_pipe_errors(t_global *global, t_symbol token)
 {
-	if (token == PIPE)
+	if (token == PIPE && !global->lexer_list->next)
 	{
 		parser_double_token_error(global, global->lexer_list,
 			global->lexer_list->token);
@@ -75,8 +75,8 @@ int	parser(t_global *global)
 		}
 		if (global->lexer_list->token == PIPE)
 		{
-			// if (handle_pipe_errors(global, global->lexer_list->token))
-			// 	return (EXIT_FAILURE);
+			if (handle_pipe_errors(global, global->lexer_list->token))
+				return (EXIT_FAILURE);
 			global->lexer_list = global->lexer_list->next;
 			continue ;
 		}
