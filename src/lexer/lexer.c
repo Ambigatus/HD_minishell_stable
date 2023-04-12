@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:38:41 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/09 22:57:39 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/12 22:29:42 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ int	lexer(t_global *global)
 		return (ft_error(2, global));
 	if (!token_reader(global))
 		return (ft_error(1, global));
+	return (0);
 }

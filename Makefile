@@ -4,7 +4,7 @@ LIB = libft.a
 SRC = src
 OBJ = obj
 INC = inc
-CFLAGS = -g -I$(INC) #-fsanitize=address #-Wall -Wextra -Werror
+CFLAGS = -g -I$(INC) -Wall -Wextra -Werror #-fsanitize=address 
 RM = rm -rf
 CC = gcc
 SRCS =	src/builtins/builtins.c\

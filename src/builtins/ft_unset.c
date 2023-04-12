@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:13:32 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/02 19:29:37 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/12 19:40:31 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	**whileloop_del_var(char **arr, char **rtn, char *str)
 
 	i = 0;
 	j = 0;
+	if (!arr)
+		return (NULL);
 	while (arr[i] != NULL)
 	{
 		if (!(ft_strncmp(arr[i], str, equal_sign(arr[i]) - 1) == 0

@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:17:04 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/07 21:12:04 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/12 22:34:49 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ int	ft_cd(t_global *global, t_simple_cmds *simple_cmd)
 	}
 	if (ret != 0)
 		return (EXIT_FAILURE);
-	// change_path(global);
 	add_path_to_env(global);
 	return (EXIT_SUCCESS);
 }

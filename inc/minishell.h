@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:46:41 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/09 22:08:20 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/12 22:34:57 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,6 @@ int				handle_heredoc(t_parser_cmd *parser_cmd, t_token *tmp);
 void			rm_redirections(t_parser_cmd *parser_cmd);
 
 /*		BUILTIN FUNCTIONS		*/
-void			change_path(t_global *global);
 int				ft_echo(t_global *global, t_simple_cmds *simple_cmd);
 int				ft_cd(t_global *global, t_simple_cmds *simple_cmd);
 int				ft_pwd(t_global *global, t_simple_cmds *simple_cmd);
