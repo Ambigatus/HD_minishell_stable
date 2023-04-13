@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:41:01 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/09 22:57:00 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 17:27:55 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,20 @@ int	handle_infile(char *file)
 {
 	int	fd;
 
+	if (access(file, F_OK) == -1)
+	{	
+		ft_putstr_fd("minishell: infile: Problem with accesing\n", STDERR_FILENO);
+        return (EXIT_FAILURE);
+	}
+	if (access(file, R_OK) == -1)
+    {
+        ft_putstr_fd("minishell: infile: Permission denied\n", STDERR_FILENO);
+        return (EXIT_FAILURE);
+    }
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putstr_fd("minishell: infile: No such file or directory\n",
+		ft_putstr_fd("minishell: infile: No such file or directory, kurwa",
 			STDERR_FILENO);
 		return (EXIT_FAILURE);
 	}

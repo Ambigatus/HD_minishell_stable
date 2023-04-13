@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:12:23 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/09 22:56:56 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 17:06:00 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param error 
  * Number of related error:
  * 0 = If there is no string following a redirection or a pipe.
- * @param tools 
+ * @param global 
  */
 int	ft_error(int error, t_global *global)
 {

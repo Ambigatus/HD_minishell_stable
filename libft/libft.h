@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:13:44 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/13 11:34:34 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 16:31:44 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int		*ft_realloc_int(int *tab, int len_tab, int add_len);
 char	**ft_realloc_one(char **old, int len, char *new_line);
 char	*realloc_set(char *line, int new_len, char charset);
 int		ft_absolute_value(float x);
+char	*ft_strjoinf(char *s1, char *s2, int to_free);
 
 /* fd_printf functions */
 
