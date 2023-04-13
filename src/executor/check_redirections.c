@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 16:41:01 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/13 17:27:55 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 18:18:27 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,26 @@ int	check_append_outfile(t_token *redirections)
 	return (fd);
 }
 
+static int	check_acces(char *file)
+{
+	if (access(file, F_OK) == -1)
+	{	
+		ft_putstr_fd("minishell: infile: Problem with accesing\n", 2);
+		return (EXIT_FAILURE);
+	}
+	if (access(file, R_OK) == -1)
+	{
+		ft_putstr_fd("minishell: infile: Permission denied\n", STDERR_FILENO);
+		return (EXIT_FAILURE);
+	}
+	return (0);
+}
+
 int	handle_infile(char *file)
 {
 	int	fd;
 
-	if (access(file, F_OK) == -1)
-	{	
-		ft_putstr_fd("minishell: infile: Problem with accesing\n", STDERR_FILENO);
-        return (EXIT_FAILURE);
-	}
-	if (access(file, R_OK) == -1)
-    {
-        ft_putstr_fd("minishell: infile: Permission denied\n", STDERR_FILENO);
-        return (EXIT_FAILURE);
-    }
+	check_acces(file);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{

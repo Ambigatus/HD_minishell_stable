@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:46:41 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/13 16:27:00 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 18:33:42 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <sys/time.h>
-
-
 
 /*		GLOBAL SYMBOLS		*/
 typedef enum s_symbol
@@ -126,6 +124,7 @@ t_simple_cmds	*ft_simple_cmdsfirst(t_simple_cmds *map);
 int				count_quotes(char *line);
 int				implement_tools(t_global *tools);
 char			**ft_arrdup(char **arr);
+bool			parse_simple_cmd(t_global *global);
 
 /*		EXPANDER FUNCTIONS		*/
 char			**expander(t_global *global, char **str);

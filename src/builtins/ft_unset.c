@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:13:32 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/13 11:42:44 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 18:12:32 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	unset_error(t_simple_cmds *simple_cmd)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (!simple_cmd->str[1])
@@ -43,41 +43,40 @@ int	unset_error(t_simple_cmds *simple_cmd)
 
 void	delete_env_var(t_global *global, char *key)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = -1;
-    while (global->envp[++i])
-    {
-        if (!ft_strncmp(global->envp[i], key, ft_strlen(key)))
-        {
-            free(global->envp[i]);
-            j = i;
-            while (global->envp[++j])
-                global->envp[j - 1] = global->envp[j];
-            global->envp[j - 1] = NULL;
-            break ;
-        }
-    }
+	i = -1;
+	while (global->envp[++i])
+	{
+		if (!ft_strncmp(global->envp[i], key, ft_strlen(key)))
+		{
+			free(global->envp[i]);
+			j = i;
+			while (global->envp[++j])
+				global->envp[j - 1] = global->envp[j];
+			global->envp[j - 1] = NULL;
+			break ;
+		}
+	}
 }
 
 int	ft_unset(t_global *global, t_simple_cmds *simple_cmd)
 {
-    int 	i;
+	int		i;
 	char	**tmp;
 
 	tmp = simple_cmd->str;
 	if (unset_error(simple_cmd) == 1)
 		return (EXIT_FAILURE);
-    i = 1;
-    while (tmp[i])
-    {
-        if (ft_strchr(tmp[i], '='))
-            ft_dprintf(2, "unset: `%s': not a valid identifier\n", tmp[i]);
-        else
-            delete_env_var(global, tmp[i]);
-        i++;
-    }
-    return (0);
+	i = 1;
+	while (tmp[i])
+	{
+		if (ft_strchr(tmp[i], '='))
+			ft_dprintf(2, "unset: `%s': not a valid identifier\n", tmp[i]);
+		else
+			delete_env_var(global, tmp[i]);
+		i++;
+	}
+	return (0);
 }
-

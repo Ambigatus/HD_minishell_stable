@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:42:39 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/13 16:57:15 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 18:30:03 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ int	send_heredoc(t_global *global, t_simple_cmds *cmd)
 	{	
 		if (cmd->redirections->token == LESS_LESS)
 		{
-			if (cmd->hd_file_name)
-				free(cmd->hd_file_name);
 			cmd->hd_file_name = generate_heredoc_filename();
 			fd = open(cmd->hd_file_name, O_CREAT | O_RDWR | O_TRUNC, 0644);
 			sl = ft_heredoc(global, cmd->redirections, fd);
