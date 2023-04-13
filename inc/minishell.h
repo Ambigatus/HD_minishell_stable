@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:46:41 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/12 22:34:57 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 11:43:11 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <signal.h>
 # include <sys/types.h>
 # include <sys/wait.h>
+
 
 /*		GLOBAL SYMBOLS		*/
 typedef enum s_symbol
@@ -180,6 +181,7 @@ size_t			equal_sign(char *str);
 int				check_valid_identifier(char c);
 int				(*builtin_arr(char *str))(t_global *global, \
 										t_simple_cmds *simple_cmd);
+void			delete_env_var(t_global *global, char *key);
 
 /*		ERRORS FUNCTIONS		*/
 void			parser_error(int error, t_global *tools, t_token *lexer_list);

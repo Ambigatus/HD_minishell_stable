@@ -6,54 +6,11 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:13:32 by hboichuk          #+#    #+#             */
-/*   Updated: 2023/04/12 19:40:31 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 11:42:44 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/minishell.h"
-
-char	**whileloop_del_var(char **arr, char **rtn, char *str)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	if (!arr)
-		return (NULL);
-	while (arr[i] != NULL)
-	{
-		if (!(ft_strncmp(arr[i], str, equal_sign(arr[i]) - 1) == 0
-				&& str[equal_sign(arr[i])] == '\0'
-				&& arr[i][ft_strlen(str)] == '='))
-		{
-			rtn[j] = ft_strdup(arr[i]);
-			if (rtn[j] == NULL)
-			{
-				free_arr(rtn);
-				return (rtn);
-			}
-			j++;
-		}	
-		i++;
-	}
-	return (rtn);
-}
-
-char	**del_var(char **arr, char *str)
-{
-	char	**rtn;
-	size_t	i;
-
-	i = 0;
-	while (arr[i] != NULL)
-		i++;
-	rtn = ft_calloc(sizeof(char *), i + 1);
-	if (!rtn)
-		return (NULL);
-	rtn = whileloop_del_var(arr, rtn, str);
-	return (rtn);
-}
 
 int	unset_error(t_simple_cmds *simple_cmd)
 {
@@ -84,17 +41,43 @@ int	unset_error(t_simple_cmds *simple_cmd)
 	return (EXIT_SUCCESS);
 }
 
+void	delete_env_var(t_global *global, char *key)
+{
+    int i;
+    int j;
+
+    i = -1;
+    while (global->envp[++i])
+    {
+        if (!ft_strncmp(global->envp[i], key, ft_strlen(key)))
+        {
+            free(global->envp[i]);
+            j = i;
+            while (global->envp[++j])
+                global->envp[j - 1] = global->envp[j];
+            global->envp[j - 1] = NULL;
+            break ;
+        }
+    }
+}
+
 int	ft_unset(t_global *global, t_simple_cmds *simple_cmd)
 {
+    int 	i;
 	char	**tmp;
 
+	tmp = simple_cmd->str;
 	if (unset_error(simple_cmd) == 1)
 		return (EXIT_FAILURE);
-	else
-	{
-		tmp = del_var(global->envp, simple_cmd->str[1]);
-		free_arr(global->envp);
-		global->envp = tmp;
-	}
-	return (EXIT_SUCCESS);
+    i = 1;
+    while (tmp[i])
+    {
+        if (ft_strchr(tmp[i], '='))
+            ft_dprintf(2, "unset: `%s': not a valid identifier\n", tmp[i]);
+        else
+            delete_env_var(global, tmp[i]);
+        i++;
+    }
+    return (0);
 }
+

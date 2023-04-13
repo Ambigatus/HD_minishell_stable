@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 14:13:44 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/04/09 21:04:42 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/04/13 11:34:34 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
+# include <stdarg.h>
+# include <stdio.h>
 
 # define BUFFER_SIZE	42
 
@@ -99,5 +101,12 @@ int		*ft_realloc_int(int *tab, int len_tab, int add_len);
 char	**ft_realloc_one(char **old, int len, char *new_line);
 char	*realloc_set(char *line, int new_len, char charset);
 int		ft_absolute_value(float x);
+
+/* fd_printf functions */
+
+int		ft_dprintf(int fd, const char *format, ...);
+int		ft_vdprintf(int fd, const char *format, va_list args);
+char	*ft_vasprintf(const char *format, va_list args);
+int		ft_vsnprintf(char *str, size_t size, const char *format, va_list args);
 
 #endif
